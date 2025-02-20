@@ -98,7 +98,16 @@ function updateTotal() {
       total += Number(value);
     }
 
-    expenseTotal.textContent = `${formatCurrency(total / 100)} `;
+    const totalSymbol = document.createElement("small");
+    totalSymbol.textContent = "R$";
+
+    expenseTotal.innerHTML = "";
+    expenseTotal.append(
+      totalSymbol,
+      formatCurrency(total / 100)
+        .toUpperCase()
+        .replace("R$", "")
+    );
   } catch (error) {
     alert("Não foi possível atualizar o total de despesas");
     console.log(error);
