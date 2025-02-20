@@ -111,3 +111,12 @@ function updateTotal() {
     console.log(error);
   }
 }
+
+expenseList.addEventListener("click", function (e) {
+  e.preventDefault();
+
+  if (e.target.classList.contains("remove-icon")) {
+    e.target.closest(".expense").remove();
+    updateTotal();
+  }
+});
